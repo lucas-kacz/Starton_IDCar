@@ -1,3 +1,23 @@
+:root {
+  --black: rgb(28, 28, 28);
+  --main: rgb(238, 227, 203);
+  --medium: rgb(215, 192, 174);
+  --dark: rgb(150, 126, 118);
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+}
+
+::-moz-selection {
+  background: var(--main);
+  color: var(--dark);
+}
+
+::selection {
+  background: var(--main);
+  color: var(--dark);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +25,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark);
 }
 
 code {
