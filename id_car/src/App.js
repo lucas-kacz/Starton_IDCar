@@ -25,26 +25,21 @@ function App() {
   }
 
   return (
-    <div>
-      <header className="main-header">
-        <h1>React &amp; Web3</h1>
-          <nav className="nav">
-            <ul>
-              <li>
-                <a href="/">{currentAccount}</a>
-              </li>
-            </ul>
-          </nav>
-      </header>
-      <main>
+    <div className="App">
+      <h1>ID Car</h1>
+      <h2>Your car is YOUR car</h2>
+      <div className="space"></div>
+      <div className="big-div">
+        <a href="/">{currentAccount}</a>
+      </div>
+      <div className="big-div">
         {!isConnected && <Login onLogin={onLogin} onLogout={onLogout}/>}
         {isConnected && <Home currentAccount={currentAccount} />}
         <div className="flex flex-wrap">
           <div className="w-full lg:w-1/2">
           </div>
-        </div>        
-
-      </main>
+        </div>
+      </div>
     </div>
   );
 }
