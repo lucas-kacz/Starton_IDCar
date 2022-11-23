@@ -3,11 +3,20 @@ pragma solidity ^0.8.9;
 import "./Dealer.sol";
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
+
 contract DealerOwnership is Dealer, ERC721{
 
     constructor() ERC721("Dealer", "IDC") public { }
 
     mapping(uint => address) carApprovals;
+
+    function add_concess(address _address)public onlyOwner{
+        addresses.push(_address);
+    }
+
+    function liste_concess() public returns(address [] memory){
+        return addresses;
+    }
 
     function balanceOf(address _owner) public override view returns (uint256 _balance) {
         return ownerCarCount[_owner];

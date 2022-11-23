@@ -3,6 +3,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 
 
+
 contract Dealer is Ownable {
 
     event NewCar(uint carID, string vin_number, string model);
@@ -13,6 +14,8 @@ contract Dealer is Ownable {
     }
 
     Car[] public cars;
+
+    address [] public addresses;
 
     mapping (uint => address) public carToOwner;
     mapping (address => uint) public ownerCarCount;
