@@ -5,6 +5,7 @@ const Partner = props => {
 
     const [partnerConnected, setPartnerConnected] = useState(false);
     const [partnerData, setPartnerData] = useState("");
+    const [carData, setCarData] = useState("");
     const [contract, setContract] = useState();
 
     const connectContractDealer = async() => {
@@ -550,6 +551,15 @@ const Partner = props => {
         setPartnerData(phrase);
     }
 
+    const setCar = async () => {
+        var vinNumber = document.getElementById("vinNumber").value;
+        var model = document.getElementById("model").value;
+        console.log(vinNumber);
+        console.log(model);
+        const phrase = await contract._createCar(vinNumber, model);
+        setCarData(phrase);
+    }
+
     return (
         <div className="div">
             {!partnerConnected && 
@@ -565,6 +575,14 @@ const Partner = props => {
                     <button className="button w250" onClick={getData}>Get client address</button>
                     <div className="space"></div>
                     <code className="big-font">{partnerData}</code>
+                    <div className="space"></div>
+                    <input type="text" placeholder="Enter the vin number" className="w250" id="vinNumber"></input>
+                    <div className="space"></div>
+                    <input type="text" placeholder="Enter the model" className="w250" id="model"></input>
+                    <div className="space"></div>
+                    <button className="button w250" onClick={setCar}>Create a new car</button>
+                    <div className="space"></div>
+                    <code className="big-font">{carData}</code>
                 </div>
             }
         </div>
