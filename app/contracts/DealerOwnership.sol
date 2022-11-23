@@ -7,6 +7,8 @@ contract DealerOwnership is Dealer, ERC721{
 
     constructor() ERC721("Dealer", "IDC") public { }
 
+    mapping(uint => address) carApprovals;
+
     function balanceOf(address _owner) public override view returns (uint256 _balance) {
         return ownerCarCount[_owner];
     }
@@ -15,23 +17,33 @@ contract DealerOwnership is Dealer, ERC721{
         return carToOwner[_tokenId];
     }
 
-    function _transfer(address _from, address _to, uint256 _tokenId) internal virtual override{  
+    function _transfer(address _from, address _to, uint256 _tokenId) internal virtual override{
+        ownerCarCount[_to]++;
+        ownerCarCount[_from]--;
+        carToOwner[_tokenId] = _to;  
         emit Transfer(_from, _to, _tokenId);
     }
     
     function transfer(address _to, uint256 _tokenId) public  {
+        address temp = 0x0000000000000000000000000000000000000000;
+        require(carToOwner[_tokenId] != temp);
         _transfer(msg.sender, _to, _tokenId);
     }
 
-    /*
-    function approve(address _to, uint256 _tokenId) public {
-
+    
+    function approve(address _to, uint256 _tokenId) public override {
+        carApprovals[_tokenId] = _to;
+        emit Approval(msg.sender, _to, _tokenId);
     }
 
     function takeOwnership(uint256 _tokenId) public {
-
+        require(carApprovals[_tokenId] == msg.sender);
+        address owner = ownerOf(_tokenId);
+        _transfer(owner, msg.sender, _tokenId);
     }
-    */
     
-    
+    function transferOwnership(address newOwner) public override virtual onlyOwner {
+        require(newOwner != address(0), "Ownable: new owner is the zero address");
+        _transferOwnership(newOwner);
+    }
 }
