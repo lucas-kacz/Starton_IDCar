@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { useState } from "react";
 
-const Garage = props => {
+function Garage() {
 
     const [garageConnected, setGarageConnected] = useState(false);
     const [GarageData, setGarageData] = useState("");
@@ -750,7 +750,6 @@ const Garage = props => {
         <div className="div">
             {!garageConnected && 
                 <div className="div">
-                    <p>{}</p>
                     <button className="button" onClick={connectContractDealer}>I am a mechanic</button>
                 </div>
             }

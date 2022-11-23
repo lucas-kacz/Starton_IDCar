@@ -7,14 +7,6 @@ function Connect() {
 
     function refreshPage() {
         window.location.reload(false);
-      }
-      
-    function init() {
-        document.getElementById("c-left").style.width = "calc(100%/3)";
-        document.getElementById("c-center").style.width = "calc(100%/3)";
-        document.getElementById("c-right").style.width = "calc(100%/3)";
-        document.getElementById("flex").style.width = "100%";
-        document.getElementById("flex").style.marginLeft = "0%";
     }
 
     return (
