@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { useState } from "react";
 
-const Client = props => {
+function Client() {
 
     const [clientConnected, setclientConnected] = useState(false);
     const [clientData, setclientData] = useState("");
@@ -731,28 +731,29 @@ const Client = props => {
         console.log(contract.address);
     }
 
-    const a = async () => {
-        const phrase = await contract.carToOwner(1);
-        setclientData(phrase);
-        console.log(phrase);
+    const getAddress = async () => {
+      var carID_c = document.getElementById("carID_c").value;
+      const phrase = await contract.carToOwner(carID_c);
+      setclientData(phrase);
     }
+
+    function a() {}
 
     return (
         <div className="div">
             {!clientConnected && 
                 <div className="div">
-                    <p>{}</p>
                     <button className="button" onClick={connectContractClient}>I am a customer</button>
                 </div>
             }
             {clientConnected && 
                 <div className="div block">
                 <div className="part">
-                  <input type="number" placeholder="Enter the car ID" className="w250" id="carID"></input>
+                  <input type="number" placeholder="Enter the car ID" className="w250" id="carID_c"></input>
                   <div className="space"></div>
-                  <button className="button w250" onClick={a}>Get client address</button>
+                  <button className="button w250" onClick={getAddress}>Get client address</button>
                   <div className="space"></div>
-                  <code className="big-font">{a}</code>
+                  <code className="big-font">{clientData}</code>
                 </div>
                 <div className="space"></div>
                 <div className="part">

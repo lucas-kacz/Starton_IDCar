@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { useState } from "react";
 
-const Partner = props => {
+function Partner() {
 
     const [partnerConnected, setPartnerConnected] = useState(false);
     const [partnerData, setPartnerData] = useState("");
@@ -752,7 +752,6 @@ const Partner = props => {
         <div className="div">
             {!partnerConnected && 
                 <div className="div">
-                    <p>{}</p>
                     <button className="button" onClick={connectContractDealer}>I am a dealer</button>
                 </div>
             }
