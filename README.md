@@ -9,7 +9,7 @@ Steps to use our app :
 
 - Open up the project folder in Visual Studio, open a new terminal and *cd* into app by typing `cd app` 
 
-- If you have Node.js and npm installed type `npm start`. It should launch a new tab in your web browser 
+- If you have Node.js and npm installed, type `npm start`. It should launch a new tab in your web browser 
 
 - Once connected click on the connect button. A Metamask popup should appear, type your password. **Important** : when connecting you should be on the BSC Testnet, if you didn’t add it yet on Metamask follow this [tutorial](https://medium.com/spartanprotocol/how-to-connect-metamask-to-bsc-testnet-7d89c111ab2) 
 
@@ -24,9 +24,9 @@ When buying a second hand car, you never know what is the exact history of the v
 
 Our project aims to solve that problem using Web3  technologies and properties such as the immutability of the blockchain, ERC721 tokens and timestamps.
 
-Our project solves the problem of falsification the data when people sell their car. With blockchain and our partner, we certified the car’s data: for example, the mileage or the last maintenance of the car. 
+Our project solves the problem of data falsification when selling between individuals. With blockchain and our partner, we certify the car’s data: for example, its mileage or its last maintenance. 
 
-It fits into the theme "Building a Decentralized Future" because with use decentralised applications like blockchain (BNB Chain) to certify and store the data. 
+It is part of the theme "Building a Decentralized Future" and more precisely "Property Rights" thanks to the use of decentralised applications like blockchain (BNB Chain) to certify and store the data. 
 
 ### Solution 
 
