@@ -1,18 +1,18 @@
-import { useState } from "react";
 import Login from "../Login/Login";
 import Partner from "../Partner/Partner";
 import Client from "../Client/Client";
-import Web3 from "web3";
-import { ethers } from "ethers";
+import Garage from "../Garage/Garage";
 
 function Connect() {
 
-    const [isConnected, setIsConnected] = useState(false);
-    const [currentAccount, setCurrentAccount] = useState(null);
-
+    function refreshPage() {
+        window.location.reload(false);
+      }
+      
     function init() {
-        document.getElementById("c-left").style.width = "50%";
-        document.getElementById("c-right").style.width = "50%";
+        document.getElementById("c-left").style.width = "calc(100%/3)";
+        document.getElementById("c-center").style.width = "calc(100%/3)";
+        document.getElementById("c-right").style.width = "calc(100%/3)";
         document.getElementById("flex").style.width = "100%";
         document.getElementById("flex").style.marginLeft = "0%";
     }
@@ -24,20 +24,24 @@ function Connect() {
             </div>
             <div className="div space"></div>
             <div className="div space"></div>
-            <div id="flex">
-                <h2 id="partner">Espace Partenaires</h2>
-                <h2 id="client">Espace Clients</h2>
+            <div id="flex" className="notel">
+                <h2 id="partner">Partner Space</h2>
+                <h2 id="client">Customer Space</h2>
+                <h2 id="garage">Mechanic Space</h2>
             </div>
             <div className="cartes">
                 <div className="carte" id="c-left">
                     <Partner />
                 </div>
-                <div className="carte" id="c-right">
+                <div className="carte" id="c-center">
                     <Client />
+                </div>
+                <div className="carte" id="c-right">
+                    <Garage />
                 </div>
             </div>
             <div className="div space">
-                <button className="button large" onClick={init}>Changer d'espace</button>
+                <button className="button large" onClick={refreshPage}>Changer d'espace</button>
             </div>
         </div>
     );

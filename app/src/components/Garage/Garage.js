@@ -1,20 +1,20 @@
 import { ethers } from "ethers";
 import { useState } from "react";
 
-const Partner = props => {
+const Garage = props => {
 
-    const [partnerConnected, setPartnerConnected] = useState(false);
-    const [partnerData, setPartnerData] = useState("");
+    const [garageConnected, setGarageConnected] = useState(false);
+    const [GarageData, setGarageData] = useState("");
     const [carData, setCarData] = useState("");
     const [contract, setContract] = useState();
 
     const connectContractDealer = async() => {
-        setPartnerConnected(true);
-        document.getElementById("c-left").style.width = "100%";
+        setGarageConnected(true);
+        document.getElementById("c-left").style.width = "0%";
         document.getElementById("c-center").style.width = "0%";
-        document.getElementById("c-right").style.width = "0%";
+        document.getElementById("c-right").style.width = "100%";
         document.getElementById("flex").style.width = "300%";
-        document.getElementById("flex").style.marginLeft = "0%";
+        document.getElementById("flex").style.marginLeft = "-300%";
         const Address = "0xdaC015269ec267F786f35D9A2F96ec319AC05eE5";
         const ABI = [
           {
@@ -734,36 +734,34 @@ const Partner = props => {
     const getData = async () => {
         var carID = document.getElementById("carID").value;
         const phrase = await contract.carToOwner(carID);
-        setPartnerData(phrase);
+        setGarageData(phrase);
     }
 
     const setCar = async () => {
-        var address = document.getElementById("clientAddress").value;
         var vinNumber = document.getElementById("vinNumber").value;
         var model = document.getElementById("model").value;
         console.log(vinNumber);
         console.log(model);
-        const phrase = await contract._createCar(vinNumber, model, address);
+        const phrase = await contract._createCar(vinNumber, model);
         setCarData(phrase);
-        window.location.reload(false);
     }
 
     return (
         <div className="div">
-            {!partnerConnected && 
+            {!garageConnected && 
                 <div className="div">
                     <p>{}</p>
-                    <button className="button" onClick={connectContractDealer}>I am a dealer</button>
+                    <button className="button" onClick={connectContractDealer}>I am a mechanic</button>
                 </div>
             }
-            {partnerConnected && 
+            {garageConnected && 
                 <div className="div block">
                   <div className="part">
                     <input type="number" placeholder="Enter the car ID" className="w250" id="carID"></input>
                     <div className="space"></div>
                     <button className="button w250" onClick={getData}>Get client address</button>
                     <div className="space"></div>
-                    <code className="big-font">{partnerData}</code>
+                    <code className="big-font">{GarageData}</code>
                   </div>
                   <div className="space"></div>
                   <div className="part">
@@ -773,7 +771,7 @@ const Partner = props => {
                     <div className="space"></div>
                     <input type="text" placeholder="Enter the model" className="w250" id="model"></input>
                     <div className="space"></div>
-                    <button className="button w250" onClick={setCar}>Create a new car</button>
+                    <button className="button w250" onClick={setCar}>Sell my car</button>
                     <div className="space"></div>
                     <code className="big-font">{carData}</code>
                   </div>
@@ -783,4 +781,4 @@ const Partner = props => {
     );
 };
 
-export default Partner;
+export default Garage;
