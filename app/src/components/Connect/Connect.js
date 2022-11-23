@@ -1,53 +1,43 @@
 import { useState } from "react";
-import Home from "../Home/Home";
 import Login from "../Login/Login";
+import Partner from "../Partner/Partner";
+import Client from "../Client/Client";
 import Web3 from "web3";
+import { ethers } from "ethers";
 
 function Connect() {
 
     const [isConnected, setIsConnected] = useState(false);
     const [currentAccount, setCurrentAccount] = useState(null);
 
-    const onLogin = async (provider) => {
-    const web3 = new Web3(provider);
-    const accounts = await web3.eth.getAccounts()
-    if (accounts.length === 0){
-        console.log("Please conntect to Metamask!")
-    } else if (accounts[0] !== currentAccount) {
-        setCurrentAccount(accounts[0]);
-        setIsConnected(true);
-        }
-    };
-
-    const onLogout = () => {
-        setIsConnected(false);
+    function init() {
+        document.getElementById("c-left").style.width = "50%";
+        document.getElementById("c-right").style.width = "50%";
+        document.getElementById("flex").style.width = "100%";
+        document.getElementById("flex").style.marginLeft = "0%";
     }
 
     return (
-        <div className="Connect">
-            <div className="space"></div>
+        <div>
             <div className="big-div">
-                <a href="/">{currentAccount}</a>
+                <Login />
             </div>
-            <div className="flex">
-                <h2>Espace Partenaires</h2>
-                <h2>Espace Clients</h2>
+            <div className="div space"></div>
+            <div className="div space"></div>
+            <div id="flex">
+                <h2 id="partner">Espace Partenaires</h2>
+                <h2 id="client">Espace Clients</h2>
             </div>
             <div className="cartes">
-                <div className="carte c-left">
-                    {!isConnected && <Login onLogin={onLogin} onLogout={onLogout}/>}
-                    {isConnected && <Home currentAccount={currentAccount} />}
-                    <div className="flex flex-wrap">
-                        <div className="w-full lg:w-1/2"></div>
-                    </div>
+                <div className="carte" id="c-left">
+                    <Partner />
                 </div>
-                <div className="carte c-right">
-                    {!isConnected && <Login onLogin={onLogin} onLogout={onLogout}/>}
-                    {isConnected && <Home currentAccount={currentAccount} />}
-                    <div className="flex flex-wrap">
-                        <div className="w-full lg:w-1/2"></div>
-                    </div>
+                <div className="carte" id="c-right">
+                    <Client />
                 </div>
+            </div>
+            <div className="div space">
+                <button className="button large" onClick={init}>Changer d'espace</button>
             </div>
         </div>
     );

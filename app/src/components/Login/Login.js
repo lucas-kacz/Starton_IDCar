@@ -4,42 +4,31 @@ import Card from "../UI/Card/Card";
 const Login = (props) => {
 
     const[isConnecting, setIsConnecting] = useState(false);
+    let [account, setAccount] = useState("");
+    let [contractData, setContractData] = useState("");
 
-    const detectProvider = () => {
-        let provider;
-        if(window.ethereum) {
-            provider = window.ethereum;
-        }else if (window.web3) {
-            provider = window.web3.currentProvider;
-        }else {
-            window.alert("No ethereum browser detected ! Check Metamask !")
-
-        }
-        return provider;
-    };
-
-
-    const onLoginHandler = async () => {
-        const provider = detectProvider();
-        if (provider) {
-            if (provider !== window.ethereum){
-                console.error("Not window.ethereum provider. Do you have multiple wallets installed ?")
-            }
+    const { ethereum } = window;
+    const connectMetamask = async () => {
+        if(window.ethereum != "undefined") {
+            const accounts = await ethereum.request({ method: "eth_requestAccounts"});
+            setAccount(accounts[0]);
             setIsConnecting(true);
-            await provider.request({
-                method : "eth_requestAccounts",
-            });
-            setIsConnecting(false);
-            props.onLogin(provider);
         }
-    };
-
+    }
+    
     return (
         <Card className="login">
-            <button onClick={onLoginHandler} className="button" type="button">
-                {!isConnecting && "Connect"}
-                {isConnecting && "Loading..."}
-            </button>
+            <div className="connect">
+            {!isConnecting &&
+                <div>
+                    <h2>Connect to your Metamask</h2>
+                    <button onClick={connectMetamask} className="button" type="button">Connect</button>
+                </div>
+            }
+            {isConnecting &&
+                <p>Your adress : <code>{account}</code></p>
+            }
+            </div>
         </Card>
     );
 };
