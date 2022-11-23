@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Card from "../UI/Card/Card";
-import classes from "./Login.module.css"
 
 const Login = (props) => {
 
@@ -36,8 +35,8 @@ const Login = (props) => {
     };
 
     return (
-        <Card className={classes.login}>
-            <button onClick={onLoginHandler} className={classes.button} type="button">
+        <Card className="login">
+            <button onClick={onLoginHandler} className="button" type="button">
                 {!isConnecting && "Connect"}
                 {isConnecting && "Loading..."}
             </button>
