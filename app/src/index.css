@@ -107,6 +107,10 @@ h1, h2 {
     margin-top: 7vh;
   }
 
+  .notel {
+    display: none!important;
+  }
+  
   .carte {
     width: 100%;
   }
@@ -123,7 +127,7 @@ h1, h2 {
   }
 
   .carte {
-    width: 50%;
+    width: calc(100%/3);
   }
 }
 
@@ -140,7 +144,7 @@ h1, h2 {
 
 .nav {
   width: 98vw;
-  height: 2.4em;
+  height: 2.8em;
   padding-bottom: .5vh;
   margin-left: auto;
   margin-right: auto;
@@ -152,6 +156,35 @@ h1, h2 {
   font-weight: bold;
   font-size: 2em;
   color: var(--medium);
+}
+
+.footer {
+  width: 100%;
+  height: fit-content;
+  min-height: 200px;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  text-align: center;
+  padding: 0;
+  background-color: rgb(0, 0, 0, .4);
+}
+
+.footer p {
+  padding: 50px;
+  text-align: center;
+  color:  var(--medium);
+}
+
+.heart {
+  transition: all.4s;
+}
+
+.heart:hover {
+  cursor: crosshair;
+  font-size: 1.7em;
+  color: var(--main);
 }
 
 .left {
@@ -250,13 +283,13 @@ p {
 }
 
 .carte {
-  height: 600px;
+  min-height: 600px;
+  height: fit-content;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
   background-color: var(--medium);
-  background-size: 100%;
   background-size: cover;
   background-blend-mode: multiply;
   background-position: center;
@@ -265,7 +298,7 @@ p {
 }
 
 .carte:hover {
-  background-size: 200%;
+  transform: scale(1.02);
   cursor: pointer;
 }
 
@@ -273,12 +306,37 @@ p {
   cursor: pointer;
 }
 
+.part {
+  width: 90%;
+  height: fit-content;
+  padding: 1%;
+  box-shadow: 0em 0em .8em var(--main);
+  background-color: rgb(0, 0, 0, .4);
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  opacity: .7;
+  filter: grayscale(1);
+  transition: all .4s;
+}
+
+.part:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
 #c-left {
   background-image: url("https://sunil.fr/partner.jpeg");
   float: left;
 }
 
-#c-right {
+#c-center {
   background-image: url("https://sunil.fr/clients.jpeg");
+  float: left;
+}
+
+#c-right {
+  background-image: url("https://sunil.fr/garage.png");
   float: right;
 }

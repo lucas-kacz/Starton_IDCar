@@ -31,13 +31,18 @@ function App() {
   return (
     <div className="App">
       <div className="nav">
-        <a className="left">Home</a>
-        <a className="right">About</a>
       </div>
       <div className="title_block">
         <h1>ID Car</h1>
       </div>
       <Connect></Connect>
+      <div className="footer">
+        <p>
+          Created with <span className="heart" id="heart">♥</span> for the Online Web3 Starton Hackathon
+          <br></br><br></br>
+          Copyright ©IdCar - November 2022  
+        </p>
+      </div>
     </div>
   );
 }
