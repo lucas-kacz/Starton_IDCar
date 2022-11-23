@@ -1,11 +1,9 @@
 :root {
-  --black: rgb(28, 28, 28);
-  --main: rgb(238, 227, 203);
-  --medium: rgb(215, 192, 174);
-  --dark: rgb(150, 126, 118);
-  --glow-color: rgb(217, 176, 255);
-  --glow-spread-color: rgba(191, 123, 255, 0.781);
-  --enhanced-glow-color: rgb(231, 206, 255);
+  --dark: rgb(28, 28, 28);
+  --black: rgb(0, 0, 0);
+  --main: rgb(0, 173, 181);
+  --medium: rgb(57, 62, 70);
+  --glow-color: rgb(238, 238, 238);
 }
 
 ::-moz-selection {
@@ -46,6 +44,67 @@ h1, h2 {
   filter: drop-shadow(0px 4px 0px var(--black));
 }
 
+@media only screen and (max-width: 520px) {
+  .title_block {
+    top: 0vh;
+    background-color: transparent;
+  }
+
+  .nav {
+    margin-top: 7vh;
+  }
+}
+
+@media only screen and (min-width: 521px) {
+  .title_block {
+    top: 1vh;
+    background-color: var(--dark);
+  }
+
+  .nav {
+    margin-top: 2.7vh;
+  }
+}
+
+.title_block {
+  position: absolute;
+  left: calc(50vw - 150px);
+  width: 300px;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+}
+
+.nav {
+  width: 98vw;
+  height: 2.4em;
+  padding-bottom: .5vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15vh;
+  border-bottom: 2px solid var(--main);
+}
+
+.nav a {
+  font-weight: bold;
+  font-size: 2em;
+  color: var(--medium);
+}
+
+.left {
+  z-index: 3;
+  margin-left: 1%;
+  float: left;
+}
+
+.right {
+  z-index: 3;
+  margin-right: 1%;
+  float: right;
+}
+
 h1 {
   font-size: 3em;
   color: var(--main);
@@ -54,6 +113,8 @@ h1 {
 h2 {
   font-size: 2em;
   color: var(--medium);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 p {
@@ -62,12 +123,26 @@ p {
   color: var(--medium);
 }
 
-.space {
-  margin-top: 20vh;
-  width: 95%;
-  margin-bottom: 20vh;
+.login{
+  width: 90%;
+  max-width: 40rem;
+  padding: 3rem;
+  margin: 2rem auto;
+  text-align: center; 
+}
+
+.button {
+  font-size: 1.2em;
   margin-left: auto;
   margin-right: auto;
+  margin-top: calc(300px - 0.7em - 4.5px);
+  text-align: center;
+  padding: 9px;
+  background-color: transparent;
+  border: 2px solid var(--main);
+  color: var(--main);
+  box-shadow: 0px 0px 25px var(--black);
+  transition: all.3s;
 }
 
 .big-div {
@@ -76,27 +151,56 @@ p {
   height: fit-content;
   margin: 0;
   padding: 0;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
 }
 
-.button {
-  font-size: 1.2em;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  padding: 9px;
-  background-color: transparent;
-  border: .2em solid var(--medium);
-  color: var(--medium);
-  border-radius: .5em;
-  filter: drop-shadow(0px 5px 2px var(--black));
-  transition: all.3s;
+.flex {
+  display: inline-flex;
+  width: 100%;
 }
 
-.button:hover {
-  transform: translateY(3px);
-  filter: drop-shadow(0px 2px 0px var(--black));
+.cartes {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carte {
+  width: 50%;
+  min-width: 500px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--medium);
+  background-size: 100%;
+  background-size: cover;
+  background-blend-mode: multiply;
+  background-position: center;
+  text-align: center;
+  transition: all .4s;
+}
+
+.carte:hover {
+  background-size: 200%;
   cursor: pointer;
+}
+
+.carte:hover .button {
+  box-shadow: 0px 0px 20px var(--main);
+  background-color: var(--main);
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.c-left {
+  background-image: url("https://sunil.fr/partner.jpeg");
+  float: left;
+}
+
+.c-right {
+  background-image: url("https://sunil.fr/clients.jpeg");
+  float: right;
 }
