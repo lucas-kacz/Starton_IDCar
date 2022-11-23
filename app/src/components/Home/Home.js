@@ -8,7 +8,7 @@ const Home = props => {
     let[contractData, setContractData] = useState("");
 
     const connectContractDealer = async() => {
-
+        
     }
 
 
