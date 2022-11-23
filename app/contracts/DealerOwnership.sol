@@ -19,16 +19,6 @@ contract DealerOwnership is Dealer, ERC721{
         return addresses;
     }
 
-    mapping(uint => address) carApprovals;
-
-    function add_concess(address _address)public onlyOwner{
-        addresses.push(_address);
-    }
-
-    function liste_concess() public returns(address [] memory){
-        return addresses;
-    }
-
     function balanceOf(address _owner) public override view returns (uint256 _balance) {
         return ownerCarCount[_owner];
     }
@@ -41,16 +31,10 @@ contract DealerOwnership is Dealer, ERC721{
         ownerCarCount[_to]++;
         ownerCarCount[_from]--;
         carToOwner[_tokenId] = _to;  
-    function _transfer(address _from, address _to, uint256 _tokenId) internal virtual override{
-        ownerCarCount[_to]++;
-        ownerCarCount[_from]--;
-        carToOwner[_tokenId] = _to;  
         emit Transfer(_from, _to, _tokenId);
     }
     
     function transfer(address _to, uint256 _tokenId) public  {
-        address temp = 0x0000000000000000000000000000000000000000;
-        require(carToOwner[_tokenId] != temp);
         address temp = 0x0000000000000000000000000000000000000000;
         require(carToOwner[_tokenId] != temp);
         _transfer(msg.sender, _to, _tokenId);
@@ -60,16 +44,10 @@ contract DealerOwnership is Dealer, ERC721{
     function approve(address _to, uint256 _tokenId) public override {
         carApprovals[_tokenId] = _to;
         emit Approval(msg.sender, _to, _tokenId);
-    
-    function approve(address _to, uint256 _tokenId) public override {
-        carApprovals[_tokenId] = _to;
-        emit Approval(msg.sender, _to, _tokenId);
     }
 
     function takeOwnership(uint256 _tokenId) public {
         require(carApprovals[_tokenId] == msg.sender);
-        address owner = ownerOf(_tokenId);
-        _transfer(owner, msg.sender, _tokenId);        require(carApprovals[_tokenId] == msg.sender);
         address owner = ownerOf(_tokenId);
         _transfer(owner, msg.sender, _tokenId);
     }
@@ -77,8 +55,18 @@ contract DealerOwnership is Dealer, ERC721{
     function transferOwnership(address newOwner) public override virtual onlyOwner {
         require(newOwner != address(0), "Ownable: new owner is the zero address");
         _transferOwnership(newOwner);
-    function transferOwnership(address newOwner) public override virtual onlyOwner {
-        require(newOwner != address(0), "Ownable: new owner is the zero address");
-        _transferOwnership(newOwner);
-    }}
+    }
+
+    function _createCar(string memory _vin_number, string memory _model, address _address) public onlyOwner{
+        //require(msg.sender == )
+        cars.push(Car(_vin_number, _model));
+        uint id = cars.length -1;
+        carToOwner[id] = msg.sender;
+        ownerCarCount[msg.sender]++;
+        emit NewCar(id, _vin_number, _model);
+        _transfer(msg.sender, _address, id);
+        //carToOwner[id] = msg.sender;
+        //ownerCarCount[msg.sender]++;
+    }
+
 }

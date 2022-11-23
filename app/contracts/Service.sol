@@ -6,8 +6,6 @@ import "./DealerOwnership.sol";
 
 contract Service is DealerOwnership {
 
-
-
     event NewService(uint serviceID, uint carID, string description, bool result);
 
     struct Service{
