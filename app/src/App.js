@@ -7,6 +7,29 @@ import Web3 from "web3";
 
 function App() {
 
+  const [isConnected, setIsConnected] = useState(false);
+  const [currentAccount, setCurrentAccount] = useState(null);
+
+  const onLogin = async (provider) => {
+    const web3 = new Web3(provider);
+    const accounts = await web3.eth.getAccounts()
+    if (accounts.length === 0){
+      console.log("Please conntect to Metamask!")
+    } else if (accounts[0] !== currentAccount) {
+      setCurrentAccount(accounts[0]);
+      setIsConnected(true);
+    }
+  };
+
+  const onLogout = () => {
+    setIsConnected(false);
+  };
+
+  const connectContract = async () => {
+    const Address = "";
+  }
+
+
   return (
     <div className="App">
       <div className="nav">
