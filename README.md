@@ -9,7 +9,7 @@ Steps to use our app :
 
 - Open up the project folder in Visual Studio, open a new terminal and *cd* into app by typing `cd app` 
 
-- If you have Node.js and npm installed, type `npm start`. It should launch a new tab in your web browser 
+- If you have Node.js type `npm install`, then type `npm start`. It should launch a new tab in your web browser 
 
 - Once connected click on the connect button. A Metamask popup should appear, type your password. **Important** : when connecting you should be on the BSC Testnet, if you didn’t add it yet on Metamask follow this [tutorial](https://medium.com/spartanprotocol/how-to-connect-metamask-to-bsc-testnet-7d89c111ab2).
 
@@ -26,7 +26,7 @@ Our project aims to solve that problem using Web3  technologies and properties s
 
 Our project solves the problem of data falsification when selling between individuals. With blockchain and our partner, we certify the car’s data: for example, its mileage or its last maintenance. 
 
-It is part of the theme "Building a Decentralized Future" and more precisely "Property Rights" thanks to the use of decentralised applications like blockchain (BNB Chain) to certify and store the data. 
+Our projects fits into the "Building a Decentralized Future" and more precisely the "E-Society" and "Property Rights" track as it allows our users to certify that their car belongs to them. The maintenance they did on it is now also documented and saved on the blockchain making it tamper-proof and be used by future buyers to make sure about the car's condition. This would drastically reduce fraud and hidden defect when selling cars on the second-hand market. 
 
 ### Solution 
 
@@ -44,6 +44,8 @@ Our biggest challenge was to transfer all the maintenance tokens with the associ
 ### Facility 
 
 Explain, step-by-step, how someone can install your project and use it. The jury will mainly use MacOS, Ubuntu, Android, and iOS. Setting up a docker/docker-compose is a good idea to allow someone to test the project easily. 
+
+- Our website is hosted online, you can acces it using this [link](https://idcar.vercel.app/)
 
 - Clone the repo on your local machine
 
@@ -83,11 +85,9 @@ Provide an explanation of the features of your projects. You must link a demonst
 
 Include a brief demonstration of the use of Starton or its partners iExec, BNB Chain, NodeReal, or Ledger. The more you use partner technologies, the more points you will earn. Example: Use the Starton API on the BNB Chain blockhain. You have used two partners. </aside> 
 
- 
+Starton : We used Starton to deploy our smart contracts and test them directly on the website. It helped us a lot to see if our code was working as planned and made us save a lot of time.
 
-API Starton : to mint the NFTs on the blockchain 
-
-BNB Chain to store the NFTs 
+We deployed our smart contracts on the BNB Chain Testnet due to its speed and low transaction cost compared to the Ethereum blockchain.
 
 
  
