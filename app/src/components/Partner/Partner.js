@@ -4,6 +4,7 @@ import { useState } from "react";
 function Partner() {
 
     const [partnerConnected, setPartnerConnected] = useState(false);
+    const [ownerData, setOwnerData] = useState("");
     const [partnerData, setPartnerData] = useState("");
     const [carData, setCarData] = useState("");
     const [contract, setContract] = useState();
@@ -731,6 +732,13 @@ function Partner() {
         setContract(new ethers.Contract(Address, ABI, signer));
     }
 
+    const setOwner = async () => {
+        var address = document.getElementById("ownerAddress").value;
+        const phrase = await contract.add_concess(address);
+        setOwnerData(phrase);
+        window.location.reload(false);
+    }
+
     const getData = async () => {
         var carID = document.getElementById("carID").value;
         const phrase = await contract.carToOwner(carID);
@@ -757,6 +765,13 @@ function Partner() {
             }
             {partnerConnected && 
                 <div className="div block">
+                  <div className="part">
+                    <input type="text" placeholder="Enter the address" className="w250" id="ownerAddress"></input>
+                    <div className="space"></div>
+                    <button className="button w250" onClick={setOwner}>Create new owner</button>
+                    <div className="space"></div>
+                    <code className="big-font">{ownerData}</code>
+                  </div>
                   <div className="part">
                     <input type="number" placeholder="Enter the car ID" className="w250" id="carID"></input>
                     <div className="space"></div>
