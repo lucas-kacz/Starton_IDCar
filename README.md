@@ -24,8 +24,6 @@ When buying a second hand car, you never know what is the exact history of the v
 
 Our project aims to solve that problem by using Web3  technologies and properties such as the immutability of the blockchain, ERC721 tokens and timestamps.
 
-Our project solves the problem of data falsification when selling between individuals. With blockchain and our partner, we certify the car’s data: for example, its mileage or its last maintenance. 
-
 Our projects fits into the "Building a Decentralized Future" and more precisely the "E-Society" and "Property Rights" track as it allows our users to certify that their car belongs to them. The maintenance they did on it is now also documented and saved on the blockchain making it tamper-proof and be used by future buyers to make sure about the car's condition. This would drastically reduce fraud and hidden defect when selling cars on the second-hand market. 
 
 ### Solution 
