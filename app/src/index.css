@@ -85,7 +85,6 @@ input[type=number] {
 .w250 {
   padding: 0;
   font-size: 2em!important;
-  width: 400px;
   margin: 0;
 }
 
@@ -112,7 +111,12 @@ h1, h2 {
     background-color: transparent;
   }
 
+  .w250 {
+    width: 300px;
+  }
+
   .nav {
+    border-bottom: 2px solid transparent;
     margin-top: 7vh;
   }
 
@@ -132,8 +136,13 @@ h1, h2 {
     background-color: var(--dark);
   }
 
+  .w250 {
+    width: 400px;
+  }
+  
   .nav {
     margin-top: 2.7vh;
+    border-bottom: 2px solid var(--main);
   }
 
   .carte {
@@ -143,23 +152,23 @@ h1, h2 {
 
 .title_block {
   position: absolute;
-  left: calc(50vw - 150px);
-  width: 300px;
+  left: calc(50vw - 75px);
+  width: 150px;
   margin: 0;
   padding: 0;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 250px;
   z-index: 2;
 }
 
 .nav {
   width: 98vw;
-  height: 2.8em;
+  height: 3.3em;
   padding-bottom: .5vh;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 15vh;
-  border-bottom: 2px solid var(--main);
 }
 
 .nav a {

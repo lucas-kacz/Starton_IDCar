@@ -4,8 +4,7 @@ function App() {
 
   return (
     <div className="App" onLoad={window.scrollTo(0, 0)}>
-      <div className="nav">
-      </div>
+      <div className="nav"></div>
       <div className="title_block">
         <img src="https://sunil.fr/logo.png" alt="idcar-logo" className="logo" />
       </div>
