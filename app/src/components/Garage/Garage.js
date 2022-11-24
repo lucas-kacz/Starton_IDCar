@@ -656,7 +656,7 @@ function Garage() {
                   <div className="part">
                     <input type="text" placeholder="Enter the Owner's address" maxLength="42" className="w500" id="clientAddress_g"></input>
                     <div className="space"></div>
-                    <input type="text" placeholder="Enter the ID" maxLength="17" className="w500" id="id_g"></input>
+                    <input type="text" placeholder="Enter the car ID" maxLength="17" className="w500" id="id_g"></input>
                     <div className="space"></div>
                     <input type="text" placeholder="Enter the vin number" maxLength="17" className="w500" id="vinNumber_g"></input>
                     <div className="space"></div>

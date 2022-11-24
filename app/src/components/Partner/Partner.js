@@ -4,7 +4,6 @@ import { useState } from "react";
 function Partner() {
 
     const [partnerConnected, setPartnerConnected] = useState(false);
-    //const [ownerData, setOwnerData] = useState("");
     const [partnerData, setPartnerData] = useState("");
     const [carData, setCarData] = useState("");
     const [contract, setContract] = useState();
@@ -16,7 +15,7 @@ function Partner() {
         document.getElementById("c-right").style.width = "0%";
         document.getElementById("flex").style.width = "300%";
         document.getElementById("flex").style.marginLeft = "0%";
-        const Address = "0x8A448c7e0D58A5891A48dabA78Ea718643324555";
+        const Address = "0x88583E7880a0d3541dD61684a83fc6B194cCB47b";
         const ABI = [
           {
             "type": "constructor",
@@ -477,6 +476,25 @@ function Partner() {
             "stateMutability": "view"
           },
           {
+            "name": "ownerToId",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
             "name": "owners",
             "type": "function",
             "inputs": [
@@ -761,7 +779,8 @@ function Partner() {
         }
         else {
           await contract._createCar(vinNumber, brand, model, color, year, address);
-          phrase = "Your " + model + " has been created successfully !\nYour page will reload in 5 seconds";
+          var yourId = await contract.ownerToId(address);
+          phrase = "Your " + model + " has been created successfully !\nIts ID is : " + yourId + "\nYour page will reload in 5 seconds";
           setCarData(phrase);
           setTimeout(() => {
             window.location.reload(false);

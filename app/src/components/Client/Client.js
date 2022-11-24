@@ -6,6 +6,7 @@ function Client() {
     const [clientConnected, setclientConnected] = useState(false);
     const [data, setData] = useState("");
     const [clientData, setclientData] = useState("");
+    const [clientId, setclientId] = useState("");
     const [contract, setContract] = useState();
 
     const connectContractClient = async() => {
@@ -15,7 +16,7 @@ function Client() {
         document.getElementById("c-right").style.width = "0%";
         document.getElementById("flex").style.width = "300%";
         document.getElementById("flex").style.marginLeft = "-100%";
-        const Address = "0x8A448c7e0D58A5891A48dabA78Ea718643324555";
+        const Address = "0x88583E7880a0d3541dD61684a83fc6B194cCB47b";
         const ABI = [
           {
             "type": "constructor",
@@ -476,6 +477,25 @@ function Client() {
             "stateMutability": "view"
           },
           {
+            "name": "ownerToId",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
             "name": "owners",
             "type": "function",
             "inputs": [
@@ -734,13 +754,23 @@ function Client() {
     }
 
     const getInfos = async () => {
-      var vin = document.getElementById("vin_c").value;//.toUpperCase();
+      var vin = document.getElementById("vin_c").value;
       const phrase = await contract.owners(vin);
       var phrase_finale = "";
       for(let i = 0; i < phrase.length; i++) {
         phrase_finale += phrase[i] + "\n";
       }
       setclientData(phrase_finale);
+    }
+
+    const getId = async () => {
+      var myaddress = document.getElementById("addressc2").value;
+      console.log(myaddress);
+      var final = "";
+      const yourId = await contract.ownerToId(myaddress);
+      final = "" + yourId;
+      console.log(final);
+      setclientId(final);
     }
 
     const sellCar = async () => {
@@ -770,6 +800,14 @@ function Client() {
             }
             {clientConnected && 
                 <div className="div block">
+                <div className="part">
+                  <input type="text" placeholder="Enter the Owner's address" maxLength="42" className="w500" id="addressc2"></input>
+                  <div className="space"></div>
+                  <button className="button w250" onClick={getId}>Get my ID</button>
+                  <div className="space"></div>
+                  <code className="big-font">{clientId}</code>
+                </div>
+                <div className="space"></div>
                 <div className="part">
                     <input type="text" placeholder="Enter the vin number" maxLength="17" className="w250" id="vin_c"></input>
                     <div className="space"></div>
