@@ -4,27 +4,30 @@ import "./DealerOwnership.sol";
 
 
 
-contract Service is DealerOwnership {
+contract Service{
 
-    event NewService(uint serviceID, uint carID, string description, bool result);
+    event NewService(uint serviceID, uint carID, string vin, string operation, uint mileage);
 
-    struct Service{
-        uint carID;
-        string description;
-        bool result;
+    struct Maintenance{
+        string vin;
+        string operation;
+        uint mileage;
     }
 
-    Service[] public services;
+    Maintenance[] public services;
 
-    mapping (uint => uint) public serviceToCar;
+    address [] public garages;
+
+    //mapping (uint => uint) public serviceToCar;
     mapping (uint => address) public serviceToOwner;
     mapping (address => uint) public ownerServiceCount;
+    mapping(address => bool) public Garages;
 
-    function _createService (uint _carID, string memory _description, bool _result) public onlyOwner{
-        services.push(Service(_carID, _description, _result));
-        uint id = services.length -1;
-        serviceToCar[id] = _carID;
-        ownerServiceCount[msg.sender]++;
-        emit NewService(id, _carID, _description, _result);
+    function setGarage(address _garage) public{
+        Garages[_garage]=true;
+    }
+
+    function contains_garage(address _garage) public view returns(bool){
+        return Garages[_garage];
     }
 }
