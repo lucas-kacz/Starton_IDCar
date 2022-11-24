@@ -4,6 +4,7 @@ import { useState } from "react";
 function Partner() {
 
     const [partnerConnected, setPartnerConnected] = useState(false);
+    const [ownerData, setOwnerData] = useState("");
     const [partnerData, setPartnerData] = useState("");
     const [carData, setCarData] = useState("");
     const [contract, setContract] = useState();
@@ -907,6 +908,13 @@ function Partner() {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         setContract(new ethers.Contract(Address, ABI, signer));
+    }
+
+    const setOwner = async () => {
+        var address = document.getElementById("ownerAddress").value;
+        const phrase = await contract.add_concess(address);
+        setOwnerData(phrase);
+        window.location.reload(false);
     }
 
     const getData = async () => {
