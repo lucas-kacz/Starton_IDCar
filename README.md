@@ -45,6 +45,8 @@ Explain, step-by-step, how someone can install your project and use it. The jury
 
 - Our website is hosted online, you can acces it using this [link](https://idcar.vercel.app/)
 
+- If you want to use the project locally follow the next steps
+
 - Clone the repo on your local machine
 
 - Type `cd app`
