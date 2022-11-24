@@ -15,7 +15,7 @@ function Partner() {
         document.getElementById("c-right").style.width = "0%";
         document.getElementById("flex").style.width = "300%";
         document.getElementById("flex").style.marginLeft = "0%";
-        const Address = "0xdaC015269ec267F786f35D9A2F96ec319AC05eE5";
+        const Address = "0x6B41F33e0857fa1B934699e42c3C00DfE35AB27d";
         const ABI = [
           {
             "name": "Approval",
@@ -78,7 +78,13 @@ function Partner() {
                 "internalType": "uint256"
               },
               {
-                "name": "vin_number",
+                "name": "vin",
+                "type": "string",
+                "indexed": false,
+                "internalType": "string"
+              },
+              {
+                "name": "brand",
                 "type": "string",
                 "indexed": false,
                 "internalType": "string"
@@ -88,6 +94,18 @@ function Partner() {
                 "type": "string",
                 "indexed": false,
                 "internalType": "string"
+              },
+              {
+                "name": "color",
+                "type": "string",
+                "indexed": false,
+                "internalType": "string"
+              },
+              {
+                "name": "production_year",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
               }
             ],
             "anonymous": false
@@ -109,16 +127,22 @@ function Partner() {
                 "internalType": "uint256"
               },
               {
-                "name": "description",
+                "name": "vin",
                 "type": "string",
                 "indexed": false,
                 "internalType": "string"
               },
               {
-                "name": "result",
-                "type": "bool",
+                "name": "operation",
+                "type": "string",
                 "indexed": false,
-                "internalType": "bool"
+                "internalType": "string"
+              },
+              {
+                "name": "mileage",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
               }
             ],
             "anonymous": false
@@ -168,11 +192,54 @@ function Partner() {
             "anonymous": false
           },
           {
+            "name": "Garages",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "",
+                "type": "bool",
+                "internalType": "bool"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
+            "name": "Partners",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "",
+                "type": "bool",
+                "internalType": "bool"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
             "name": "_createCar",
             "type": "function",
             "inputs": [
               {
-                "name": "_vin_number",
+                "name": "_vin",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "_brand",
                 "type": "string",
                 "internalType": "string"
               },
@@ -180,6 +247,16 @@ function Partner() {
                 "name": "_model",
                 "type": "string",
                 "internalType": "string"
+              },
+              {
+                "name": "_color",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "_production_year",
+                "type": "uint256",
+                "internalType": "uint256"
               },
               {
                 "name": "_address",
@@ -200,50 +277,23 @@ function Partner() {
                 "internalType": "uint256"
               },
               {
-                "name": "_description",
+                "name": "_vin",
                 "type": "string",
                 "internalType": "string"
               },
               {
-                "name": "_result",
-                "type": "bool",
-                "internalType": "bool"
-              }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-          },
-          {
-            "name": "add_concess",
-            "type": "function",
-            "inputs": [
+                "name": "_operation",
+                "type": "string",
+                "internalType": "string"
+              },
               {
-                "name": "_address",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-          },
-          {
-            "name": "addresses",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
+                "name": "_mileage",
                 "type": "uint256",
                 "internalType": "uint256"
               }
             ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "stateMutability": "view"
+            "outputs": [],
+            "stateMutability": "nonpayable"
           },
           {
             "name": "approve",
@@ -313,7 +363,12 @@ function Partner() {
             ],
             "outputs": [
               {
-                "name": "vin_number",
+                "name": "vin",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "brand",
                 "type": "string",
                 "internalType": "string"
               },
@@ -321,6 +376,73 @@ function Partner() {
                 "name": "model",
                 "type": "string",
                 "internalType": "string"
+              },
+              {
+                "name": "color",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "production_year",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
+            "name": "contains_garage",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "_garage",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "",
+                "type": "bool",
+                "internalType": "bool"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
+            "name": "contains_partner",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "_partner",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "",
+                "type": "bool",
+                "internalType": "bool"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
+            "name": "garages",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
               }
             ],
             "stateMutability": "view"
@@ -367,19 +489,6 @@ function Partner() {
               }
             ],
             "stateMutability": "view"
-          },
-          {
-            "name": "liste_concess",
-            "type": "function",
-            "inputs": [],
-            "outputs": [
-              {
-                "name": "",
-                "type": "address[]",
-                "internalType": "address[]"
-              }
-            ],
-            "stateMutability": "nonpayable"
           },
           {
             "name": "name",
@@ -431,9 +540,28 @@ function Partner() {
             "type": "function",
             "inputs": [
               {
-                "name": "_tokenId",
+                "name": "tokenId",
                 "type": "uint256",
                 "internalType": "uint256"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
+            "name": "ownerOfVin",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "_vin",
+                "type": "string",
+                "internalType": "string"
               }
             ],
             "outputs": [
@@ -577,14 +705,19 @@ function Partner() {
                 "internalType": "uint256"
               },
               {
-                "name": "description",
+                "name": "vin",
                 "type": "string",
                 "internalType": "string"
               },
               {
-                "name": "result",
-                "type": "bool",
-                "internalType": "bool"
+                "name": "operation",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "mileage",
+                "type": "uint256",
+                "internalType": "uint256"
               }
             ],
             "stateMutability": "view"
@@ -602,6 +735,32 @@ function Partner() {
                 "name": "approved",
                 "type": "bool",
                 "internalType": "bool"
+              }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+          },
+          {
+            "name": "setGarage",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "_garage",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "outputs": [],
+            "stateMutability": "nonpayable"
+          },
+          {
+            "name": "setPartner",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "_partner",
+                "type": "address",
+                "internalType": "address"
               }
             ],
             "outputs": [],
@@ -724,6 +883,25 @@ function Partner() {
             ],
             "outputs": [],
             "stateMutability": "nonpayable"
+          },
+          {
+            "name": "vinToOwner",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "string",
+                "internalType": "string"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "stateMutability": "view"
           }
         ];
         const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -732,20 +910,33 @@ function Partner() {
     }
 
     const getData = async () => {
-        var carID = document.getElementById("carID").value;
-        const phrase = await contract.carToOwner(carID);
+        var vin = document.getElementById("vin").value;//.replace(/\s+/g, '-');
+        const phrase = await contract.vinToOwner(vin);
         setPartnerData(phrase);
     }
 
     const setCar = async () => {
         var address = document.getElementById("clientAddress").value;
-        var vinNumber = document.getElementById("vinNumber").value;
+        var vinNumber = document.getElementById("vinNumber").value.toUpperCase();//.replace(/\s+/g, '-');
+        var brand = document.getElementById("brand").value;
+        var year = document.getElementById("year").value;
         var model = document.getElementById("model").value;
+        var color = document.getElementById("color").value;
         console.log(vinNumber);
         console.log(model);
-        const phrase = await contract._createCar(vinNumber, model, address);
-        setCarData(phrase);
-        window.location.reload(false);
+        var phrase = "";
+        if(vinNumber === "" || model === "" || model === "select") {
+          phrase = "Error in the creation of the model, please retry";
+          setCarData(phrase);
+        }
+        else {
+          await contract._createCar(vinNumber, brand, model, color, year, address);
+          phrase = "Your " + model + " has been created successfully !\nYour page will reload in 5 seconds";
+          setCarData(phrase);
+          setTimeout(() => {
+            window.location.reload(false);
+          }, 5000)
+        }
     }
 
     return (
@@ -758,7 +949,7 @@ function Partner() {
             {partnerConnected && 
                 <div className="div block">
                   <div className="part">
-                    <input type="number" placeholder="Enter the car ID" className="w250" id="carID"></input>
+                    <input type="text" placeholder="Enter the vin number" maxLength="17" className="w250" id="vin"></input>
                     <div className="space"></div>
                     <button className="button w250" onClick={getData}>Get client address</button>
                     <div className="space"></div>
@@ -766,11 +957,30 @@ function Partner() {
                   </div>
                   <div className="space"></div>
                   <div className="part">
-                    <input type="text" placeholder="Enter the Owner's address" className="w250" id="clientAddress"></input>
+                    <input type="text" placeholder="Enter the Owner's address" maxLength="42" className="w500" id="clientAddress"></input>
                     <div className="space"></div>
-                    <input type="text" placeholder="Enter the vin number" className="w250" id="vinNumber"></input>
+                    <input type="text" placeholder="Enter the vin number" maxLength="17" className="w500" id="vinNumber"></input>
                     <div className="space"></div>
-                    <input type="text" placeholder="Enter the model" className="w250" id="model"></input>
+                    <select className="w250" id="brand">
+                      <option value="select" defaultValue>Enter the brand</option>
+                      <option value="Renault">Renault</option>
+                    </select>
+                    <span className="sp-space"></span>
+                    <select className="w250" id="model">
+                      <option value="select" defaultValue>Select the model</option>
+                      <option value="Twingo">Twingo</option>
+                      <option value="Clio">Clio</option>
+                      <option value="Megane">Megane</option>
+                      <option value="Captur">Captur</option>
+                      <option value="Espace">Espace</option>
+                      <option value="Talisman">Talisman</option>
+                      <option value="Kangoo">Kangoo</option>
+                      <option value="Austral">Austral</option>
+                    </select>
+                    <div className="space"></div>
+                    <input type="number" placeholder="Enter the release year" className="w250" min="1950" max="2050" id="year"></input>
+                    <span className="sp-space"></span>
+                    <input type="text" placeholder="Enter the color" className="w250" id="color"></input>
                     <div className="space"></div>
                     <button className="button w250" onClick={setCar}>Create a new car</button>
                     <div className="space"></div>

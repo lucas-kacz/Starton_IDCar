@@ -13,7 +13,7 @@ function App() {
         <p>
           Created with <span className="heart" id="heart">♥</span> for the Online Web3 Starton Hackathon
           <br></br><br></br>
-          Copyright ©IdCar - November 2022  
+          Copyright ©IdCar - November 2022 | Contact : <a className="link" href="mailto:idcar@esilv.fr">idcar@esilv.fr</a>
         </p>
       </div>
     </div>
