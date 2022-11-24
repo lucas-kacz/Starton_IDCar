@@ -15,8 +15,13 @@ function Garage() {
         document.getElementById("c-right").style.width = "100%";
         document.getElementById("flex").style.width = "300%";
         document.getElementById("flex").style.marginLeft = "-200%";
-        const Address = "0xBBE73FEf27F4E26C3221B363fE3d08F50C750a3B";
+        const Address = "0x62B4b23f131749eAb4924011C65F3E7c61CD6919";
         const ABI = [
+          {
+            "type": "constructor",
+            "inputs": [],
+            "stateMutability": "nonpayable"
+          },
           {
             "name": "Approval",
             "type": "event",
@@ -68,49 +73,6 @@ function Garage() {
             "anonymous": false
           },
           {
-            "name": "NewCar",
-            "type": "event",
-            "inputs": [
-              {
-                "name": "carID",
-                "type": "uint256",
-                "indexed": false,
-                "internalType": "uint256"
-              },
-              {
-                "name": "vin",
-                "type": "string",
-                "indexed": false,
-                "internalType": "string"
-              },
-              {
-                "name": "brand",
-                "type": "string",
-                "indexed": false,
-                "internalType": "string"
-              },
-              {
-                "name": "model",
-                "type": "string",
-                "indexed": false,
-                "internalType": "string"
-              },
-              {
-                "name": "color",
-                "type": "string",
-                "indexed": false,
-                "internalType": "string"
-              },
-              {
-                "name": "production_year",
-                "type": "uint256",
-                "indexed": false,
-                "internalType": "uint256"
-              }
-            ],
-            "anonymous": false
-          },
-          {
             "name": "NewService",
             "type": "event",
             "inputs": [
@@ -143,25 +105,6 @@ function Garage() {
                 "type": "uint256",
                 "indexed": false,
                 "internalType": "uint256"
-              }
-            ],
-            "anonymous": false
-          },
-          {
-            "name": "OwnershipTransferred",
-            "type": "event",
-            "inputs": [
-              {
-                "name": "previousOwner",
-                "type": "address",
-                "indexed": true,
-                "internalType": "address"
-              },
-              {
-                "name": "newOwner",
-                "type": "address",
-                "indexed": true,
-                "internalType": "address"
               }
             ],
             "anonymous": false
@@ -211,63 +154,6 @@ function Garage() {
             "stateMutability": "view"
           },
           {
-            "name": "Partners",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "bool",
-                "internalType": "bool"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
-            "name": "_createCar",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "_vin",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "_brand",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "_model",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "_color",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "_production_year",
-                "type": "uint256",
-                "internalType": "uint256"
-              },
-              {
-                "name": "_address",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-          },
-          {
             "name": "_createService",
             "type": "function",
             "inputs": [
@@ -290,6 +176,11 @@ function Garage() {
                 "name": "_mileage",
                 "type": "uint256",
                 "internalType": "uint256"
+              },
+              {
+                "name": "_address",
+                "type": "address",
+                "internalType": "address"
               }
             ],
             "outputs": [],
@@ -300,12 +191,12 @@ function Garage() {
             "type": "function",
             "inputs": [
               {
-                "name": "_to",
+                "name": "to",
                 "type": "address",
                 "internalType": "address"
               },
               {
-                "name": "_tokenId",
+                "name": "tokenId",
                 "type": "uint256",
                 "internalType": "uint256"
               }
@@ -333,107 +224,11 @@ function Garage() {
             "stateMutability": "view"
           },
           {
-            "name": "carApprovals",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
-            "name": "carToOwner",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
-            "name": "cars",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "vin",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "brand",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "model",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "color",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "production_year",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
             "name": "contains_garage",
             "type": "function",
             "inputs": [
               {
                 "name": "_garage",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "bool",
-                "internalType": "bool"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
-            "name": "contains_partner",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "_partner",
                 "type": "address",
                 "internalType": "address"
               }
@@ -523,38 +318,6 @@ function Garage() {
             "stateMutability": "view"
           },
           {
-            "name": "owner",
-            "type": "function",
-            "inputs": [],
-            "outputs": [
-              {
-                "name": "",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
-            "name": "ownerCarCount",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
             "name": "ownerOf",
             "type": "function",
             "inputs": [
@@ -567,25 +330,6 @@ function Garage() {
             "outputs": [
               {
                 "name": "",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
-            "name": "ownerOfVin",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "_vin",
-                "type": "string",
-                "internalType": "string"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "_owner",
                 "type": "address",
                 "internalType": "address"
               }
@@ -610,52 +354,6 @@ function Garage() {
               }
             ],
             "stateMutability": "view"
-          },
-          {
-            "name": "owners",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "vin",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "brand",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "model",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "color",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "production_year",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
-            "name": "renounceOwnership",
-            "type": "function",
-            "inputs": [],
-            "outputs": [],
-            "stateMutability": "nonpayable"
           },
           {
             "name": "safeTransferFrom",
@@ -709,25 +407,6 @@ function Garage() {
             "stateMutability": "nonpayable"
           },
           {
-            "name": "serviceToCar",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
             "name": "serviceToOwner",
             "type": "function",
             "inputs": [
@@ -758,10 +437,39 @@ function Garage() {
             ],
             "outputs": [
               {
-                "name": "carID",
+                "name": "vin",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "operation",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "mileage",
                 "type": "uint256",
                 "internalType": "uint256"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
+            "name": "servlist",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
               },
+              {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ],
+            "outputs": [
               {
                 "name": "vin",
                 "type": "string",
@@ -812,19 +520,6 @@ function Garage() {
             "stateMutability": "nonpayable"
           },
           {
-            "name": "setPartner",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "_partner",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-          },
-          {
             "name": "supportsInterface",
             "type": "function",
             "inputs": [
@@ -855,19 +550,6 @@ function Garage() {
               }
             ],
             "stateMutability": "view"
-          },
-          {
-            "name": "takeOwnership",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "_tokenId",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
           },
           {
             "name": "tokenURI",
@@ -928,38 +610,6 @@ function Garage() {
             ],
             "outputs": [],
             "stateMutability": "nonpayable"
-          },
-          {
-            "name": "transferOwnership",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "newOwner",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-          },
-          {
-            "name": "vinToOwner",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "string",
-                "internalType": "string"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "stateMutability": "view"
           }
         ];
         const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -968,39 +618,45 @@ function Garage() {
     }
 
     const getData = async () => {
-        var vin = document.getElementById("vin_g").value;//.toUpperCase();//.replace(/\s+/g, '-');
-        const phrase = await contract.vinToOwner(vin);
+        var id2 = document.getElementById("id_g2").value;//.toUpperCase();
+        const phrase = await contract.ownerOf(id2);
         setGarageData(phrase);
     }
 
     const setService = async () => {
+        var id = document.getElementById("id_g").value;
         var vinNumber = document.getElementById("vinNumber_g").value;//.toUpperCase();
         var address = document.getElementById("clientAddress_g").value;
         var operation = document.getElementById("operation").value;
         var mileage = document.getElementById("mileage").value;
-        const phrase = await contract._createCar(vinNumber, operation, mileage, address);
+        const phrase = await contract._createService(id, vinNumber, operation, mileage, address);
         setCarData(phrase);
+        setTimeout(() => {
+          window.location.reload(false);
+        }, 5000)
     }
 
     return (
         <div className="div">
             {!garageConnected && 
                 <div className="div">
-                    <button className="button" onClick={connectContractDealer}>I am a mechanic</button>
+                    <button className="button" onClick={connectContractDealer}>I am a mechanic 🔧</button>
                 </div>
             }
             {garageConnected && 
                 <div className="div block">
                   <div className="part">
-                    <input type="text" placeholder="Enter the vin number" maxLength="17" className="w250" id="vin_g"></input>
+                    <input type="number" placeholder="Enter the Service ID" min="0" className="w250" id="id_g2"></input>
                     <div className="space"></div>
-                    <button className="button w250" onClick={getData}>Get client address</button>
+                    <button className="button w250" onClick={getData}>Get Service infos</button>
                     <div className="space"></div>
                     <code className="big-font">{garageData}</code>
                   </div>
                   <div className="space"></div>
                   <div className="part">
                     <input type="text" placeholder="Enter the Owner's address" maxLength="42" className="w500" id="clientAddress_g"></input>
+                    <div className="space"></div>
+                    <input type="text" placeholder="Enter the ID" maxLength="17" className="w500" id="id_g"></input>
                     <div className="space"></div>
                     <input type="text" placeholder="Enter the vin number" maxLength="17" className="w500" id="vinNumber_g"></input>
                     <div className="space"></div>
