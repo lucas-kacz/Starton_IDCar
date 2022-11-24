@@ -11,7 +11,7 @@ Steps to use our app :
 
 - If you have Node.js and npm installed, type `npm start`. It should launch a new tab in your web browser 
 
-- Once connected click on the connect button. A Metamask popup should appear, type your password. **Important** : when connecting you should be on the BSC Testnet, if you didn’t add it yet on Metamask follow this [tutorial](https://medium.com/spartanprotocol/how-to-connect-metamask-to-bsc-testnet-7d89c111ab2) 
+- Once connected click on the connect button. A Metamask popup should appear, type your password. **Important** : when connecting you should be on the BSC Testnet, if you didn’t add it yet on Metamask follow this [tutorial](https://medium.com/spartanprotocol/how-to-connect-metamask-to-bsc-testnet-7d89c111ab2).
 
 - You are ready to go ! 
 
@@ -57,7 +57,16 @@ Explain, step-by-step, how someone can install your project and use it. The jury
 
 - For testing purposes the conditions on car and service creations have been disabled (in real conditions only partners would be able to create new cars and maintenance tokens)
 
--
+- Now you can use our website, you can check our [tutorial](https://medium.com/spartanprotocol/how-to-connect-metamask-to-bsc-testnet-7d89c111ab2) to know how to use it.
+
+- We used Starton a lot to test the functions of our smart contract. If you want to do a more in-depth testing you can try the contract on Starton by importing our smart contract.
+  1. Create an account or Login
+  2. Open your existing project
+  3. Select Smart Contract
+  4. New Smart Contract / Import a Smart Contract
+  5. Name it as you want and go next
+  6. There should be a text file in the repository named starton.txt. For each contract copy/paste the address and ABI and select BNB Chain Testnet
+  7. You're ready to go ! Click on interract and you should be able to use our functions when connected to your wallet
 
 ### Team and comments 
 
