@@ -15,7 +15,7 @@ function Garage() {
         document.getElementById("c-right").style.width = "100%";
         document.getElementById("flex").style.width = "300%";
         document.getElementById("flex").style.marginLeft = "-200%";
-        const Address = "0x6B41F33e0857fa1B934699e42c3C00DfE35AB27d";
+        const Address = "0xBBE73FEf27F4E26C3221B363fE3d08F50C750a3B";
         const ABI = [
           {
             "name": "Approval",
@@ -333,6 +333,25 @@ function Garage() {
             "stateMutability": "view"
           },
           {
+            "name": "carApprovals",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
             "name": "carToOwner",
             "type": "function",
             "inputs": [
@@ -586,6 +605,45 @@ function Garage() {
             "outputs": [
               {
                 "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
+            "name": "owners",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "vin",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "brand",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "model",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "color",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "production_year",
                 "type": "uint256",
                 "internalType": "uint256"
               }
@@ -910,13 +968,13 @@ function Garage() {
     }
 
     const getData = async () => {
-        var vin = document.getElementById("vin_g").value.toUpperCase();//.replace(/\s+/g, '-');
+        var vin = document.getElementById("vin_g").value;//.toUpperCase();//.replace(/\s+/g, '-');
         const phrase = await contract.vinToOwner(vin);
         setGarageData(phrase);
     }
 
     const setService = async () => {
-        var vinNumber = document.getElementById("vinNumber_g").value.toUpperCase();
+        var vinNumber = document.getElementById("vinNumber_g").value;//.toUpperCase();
         var address = document.getElementById("clientAddress_g").value;
         var operation = document.getElementById("operation").value;
         var mileage = document.getElementById("mileage").value;

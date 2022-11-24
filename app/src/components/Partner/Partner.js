@@ -4,7 +4,7 @@ import { useState } from "react";
 function Partner() {
 
     const [partnerConnected, setPartnerConnected] = useState(false);
-    const [ownerData, setOwnerData] = useState("");
+    //const [ownerData, setOwnerData] = useState("");
     const [partnerData, setPartnerData] = useState("");
     const [carData, setCarData] = useState("");
     const [contract, setContract] = useState();
@@ -16,7 +16,7 @@ function Partner() {
         document.getElementById("c-right").style.width = "0%";
         document.getElementById("flex").style.width = "300%";
         document.getElementById("flex").style.marginLeft = "0%";
-        const Address = "0x6B41F33e0857fa1B934699e42c3C00DfE35AB27d";
+        const Address = "0xBBE73FEf27F4E26C3221B363fE3d08F50C750a3B";
         const ABI = [
           {
             "name": "Approval",
@@ -334,6 +334,25 @@ function Partner() {
             "stateMutability": "view"
           },
           {
+            "name": "carApprovals",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
             "name": "carToOwner",
             "type": "function",
             "inputs": [
@@ -587,6 +606,45 @@ function Partner() {
             "outputs": [
               {
                 "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
+            "name": "owners",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "vin",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "brand",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "model",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "color",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "production_year",
                 "type": "uint256",
                 "internalType": "uint256"
               }
@@ -909,14 +967,14 @@ function Partner() {
         const signer = provider.getSigner();
         setContract(new ethers.Contract(Address, ABI, signer));
     }
-
+/*
     const setOwner = async () => {
         var address = document.getElementById("ownerAddress").value;
         const phrase = await contract.add_concess(address);
         setOwnerData(phrase);
         window.location.reload(false);
     }
-
+*/
     const getData = async () => {
         var vin = document.getElementById("vin").value;//.replace(/\s+/g, '-');
         const phrase = await contract.vinToOwner(vin);
@@ -925,7 +983,7 @@ function Partner() {
 
     const setCar = async () => {
         var address = document.getElementById("clientAddress").value;
-        var vinNumber = document.getElementById("vinNumber").value.toUpperCase();//.replace(/\s+/g, '-');
+        var vinNumber = document.getElementById("vinNumber").value;//.toUpperCase();//.replace(/\s+/g, '-');
         var brand = document.getElementById("brand").value;
         var year = document.getElementById("year").value;
         var model = document.getElementById("model").value;

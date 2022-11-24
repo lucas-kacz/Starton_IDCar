@@ -4,6 +4,7 @@ import { useState } from "react";
 function Client() {
 
     const [clientConnected, setclientConnected] = useState(false);
+    const [data, setData] = useState("");
     const [clientData, setclientData] = useState("");
     const [contract, setContract] = useState();
 
@@ -14,7 +15,7 @@ function Client() {
         document.getElementById("c-right").style.width = "0%";
         document.getElementById("flex").style.width = "300%";
         document.getElementById("flex").style.marginLeft = "-100%";
-        const Address = "0x6B41F33e0857fa1B934699e42c3C00DfE35AB27d";
+        const Address = "0xBBE73FEf27F4E26C3221B363fE3d08F50C750a3B";
         const ABI = [
           {
             "name": "Approval",
@@ -332,6 +333,25 @@ function Client() {
             "stateMutability": "view"
           },
           {
+            "name": "carApprovals",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
             "name": "carToOwner",
             "type": "function",
             "inputs": [
@@ -585,6 +605,45 @@ function Client() {
             "outputs": [
               {
                 "name": "",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ],
+            "stateMutability": "view"
+          },
+          {
+            "name": "owners",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "vin",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "brand",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "model",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "color",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "production_year",
                 "type": "uint256",
                 "internalType": "uint256"
               }
@@ -910,7 +969,8 @@ function Client() {
     }
 
     const getInfos = async () => {
-      const phrase = await contract.vinToOwner(contract.address);
+      const phrase = await contract.owners(contract.address); // "0x77DbD1ddF6d9BfaB2aD5e76986A0628BB09B8Ae9"
+      console.log(phrase);
       setclientData(phrase);
     }
 
@@ -920,12 +980,12 @@ function Client() {
       var phrase = "";
       if(vinNumber === "" || address === "") {
         phrase = "Error in the creation of the model, please retry";
-        setclientData(phrase);
+        setData(phrase);
       }
       else {
         await contract.transfer(address, vinNumber);
         phrase = "Your car has been sold successfully !\nYour page will reload in 5 seconds";
-        setclientData(phrase);
+        setData(phrase);
         setTimeout(() => {
           window.location.reload(false);
         }, 5000)
@@ -954,7 +1014,7 @@ function Client() {
                   <div className="space"></div>
                   <button className="button w250" onClick={sellCar}>Sell my car</button>
                   <div className="space"></div>
-                  <code className="big-font">{clientData}</code>
+                  <code className="big-font">{data}</code>
                 </div>
               </div>
             }
