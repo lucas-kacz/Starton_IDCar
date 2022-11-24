@@ -22,7 +22,7 @@ What problem does your project solve? How does it fit into the theme "Building a
 
 When buying a second hand car, you never know what is the exact history of the vehicle (mileage, maintenance, first-hand or more, ...). According to the [French government](https://www.economie.gouv.fr/dgccrf/vente-de-voitures-doccasion-gare-aux-tromperies) 47% of the second-hand vehicles sold in France in 2015 had irregularities concerning the parameters stated above.
 
-Our project aims to solve that problem using Web3  technologies and properties such as the immutability of the blockchain, ERC721 tokens and timestamps.
+Our project aims to solve that problem by using Web3  technologies and properties such as the immutability of the blockchain, ERC721 tokens and timestamps.
 
 Our project solves the problem of data falsification when selling between individuals. With blockchain and our partner, we certify the car’s data: for example, its mileage or its last maintenance. 
 
