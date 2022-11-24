@@ -6,6 +6,7 @@ function Client() {
     const [clientConnected, setclientConnected] = useState(false);
     const [data, setData] = useState("");
     const [clientData, setclientData] = useState("");
+    const [clientId, setclientId] = useState("");
     const [contract, setContract] = useState();
 
     const connectContractClient = async() => {
@@ -15,8 +16,13 @@ function Client() {
         document.getElementById("c-right").style.width = "0%";
         document.getElementById("flex").style.width = "300%";
         document.getElementById("flex").style.marginLeft = "-100%";
-        const Address = "0xBBE73FEf27F4E26C3221B363fE3d08F50C750a3B";
+        const Address = "0x88583E7880a0d3541dD61684a83fc6B194cCB47b";
         const ABI = [
+          {
+            "type": "constructor",
+            "inputs": [],
+            "stateMutability": "nonpayable"
+          },
           {
             "name": "Approval",
             "type": "event",
@@ -111,43 +117,6 @@ function Client() {
             "anonymous": false
           },
           {
-            "name": "NewService",
-            "type": "event",
-            "inputs": [
-              {
-                "name": "serviceID",
-                "type": "uint256",
-                "indexed": false,
-                "internalType": "uint256"
-              },
-              {
-                "name": "carID",
-                "type": "uint256",
-                "indexed": false,
-                "internalType": "uint256"
-              },
-              {
-                "name": "vin",
-                "type": "string",
-                "indexed": false,
-                "internalType": "string"
-              },
-              {
-                "name": "operation",
-                "type": "string",
-                "indexed": false,
-                "internalType": "string"
-              },
-              {
-                "name": "mileage",
-                "type": "uint256",
-                "indexed": false,
-                "internalType": "uint256"
-              }
-            ],
-            "anonymous": false
-          },
-          {
             "name": "OwnershipTransferred",
             "type": "event",
             "inputs": [
@@ -190,25 +159,6 @@ function Client() {
               }
             ],
             "anonymous": false
-          },
-          {
-            "name": "Garages",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "bool",
-                "internalType": "bool"
-              }
-            ],
-            "stateMutability": "view"
           },
           {
             "name": "Partners",
@@ -268,44 +218,16 @@ function Client() {
             "stateMutability": "nonpayable"
           },
           {
-            "name": "_createService",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "_carID",
-                "type": "uint256",
-                "internalType": "uint256"
-              },
-              {
-                "name": "_vin",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "_operation",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "_mileage",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-          },
-          {
             "name": "approve",
             "type": "function",
             "inputs": [
               {
-                "name": "_to",
+                "name": "to",
                 "type": "address",
                 "internalType": "address"
               },
               {
-                "name": "_tokenId",
+                "name": "tokenId",
                 "type": "uint256",
                 "internalType": "uint256"
               }
@@ -410,25 +332,6 @@ function Client() {
             "stateMutability": "view"
           },
           {
-            "name": "contains_garage",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "_garage",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "bool",
-                "internalType": "bool"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
             "name": "contains_partner",
             "type": "function",
             "inputs": [
@@ -443,25 +346,6 @@ function Client() {
                 "name": "",
                 "type": "bool",
                 "internalType": "bool"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
-            "name": "garages",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "address",
-                "internalType": "address"
               }
             ],
             "stateMutability": "view"
@@ -593,7 +477,7 @@ function Client() {
             "stateMutability": "view"
           },
           {
-            "name": "ownerServiceCount",
+            "name": "ownerToId",
             "type": "function",
             "inputs": [
               {
@@ -617,8 +501,8 @@ function Client() {
             "inputs": [
               {
                 "name": "",
-                "type": "address",
-                "internalType": "address"
+                "type": "string",
+                "internalType": "string"
               }
             ],
             "outputs": [
@@ -709,78 +593,6 @@ function Client() {
             "stateMutability": "nonpayable"
           },
           {
-            "name": "serviceToCar",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
-            "name": "serviceToOwner",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "",
-                "type": "address",
-                "internalType": "address"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
-            "name": "services",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "carID",
-                "type": "uint256",
-                "internalType": "uint256"
-              },
-              {
-                "name": "vin",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "operation",
-                "type": "string",
-                "internalType": "string"
-              },
-              {
-                "name": "mileage",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "stateMutability": "view"
-          },
-          {
             "name": "setApprovalForAll",
             "type": "function",
             "inputs": [
@@ -793,19 +605,6 @@ function Client() {
                 "name": "approved",
                 "type": "bool",
                 "internalType": "bool"
-              }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
-          },
-          {
-            "name": "setGarage",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "_garage",
-                "type": "address",
-                "internalType": "address"
               }
             ],
             "outputs": [],
@@ -855,19 +654,6 @@ function Client() {
               }
             ],
             "stateMutability": "view"
-          },
-          {
-            "name": "takeOwnership",
-            "type": "function",
-            "inputs": [
-              {
-                "name": "_tokenId",
-                "type": "uint256",
-                "internalType": "uint256"
-              }
-            ],
-            "outputs": [],
-            "stateMutability": "nonpayable"
           },
           {
             "name": "tokenURI",
@@ -965,25 +751,38 @@ function Client() {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         setContract(new ethers.Contract(Address, ABI, signer));
-        console.log(contract.address);
     }
 
     const getInfos = async () => {
-      const phrase = await contract.owners(contract.address); // "0x77DbD1ddF6d9BfaB2aD5e76986A0628BB09B8Ae9"
-      console.log(phrase);
-      setclientData(phrase);
+      var vin = document.getElementById("vin_c").value;
+      const phrase = await contract.owners(vin);
+      var phrase_finale = "";
+      for(let i = 0; i < phrase.length; i++) {
+        phrase_finale += phrase[i] + "\n";
+      }
+      setclientData(phrase_finale);
+    }
+
+    const getId = async () => {
+      var myaddress = document.getElementById("addressc2").value;
+      console.log(myaddress);
+      var final = "";
+      const yourId = await contract.ownerToId(myaddress);
+      final = "" + yourId;
+      console.log(final);
+      setclientId(final);
     }
 
     const sellCar = async () => {
       var address = document.getElementById("clientAddress_c").value;
-      var vinNumber = document.getElementById("vinNumber_c").value;
+      var id = document.getElementById("id_c").value;
       var phrase = "";
-      if(vinNumber === "" || address === "") {
+      if(id === "" || address === "") {
         phrase = "Error in the creation of the model, please retry";
         setData(phrase);
       }
       else {
-        await contract.transfer(address, vinNumber);
+        await contract.transfer(address, id);
         phrase = "Your car has been sold successfully !\nYour page will reload in 5 seconds";
         setData(phrase);
         setTimeout(() => {
@@ -996,13 +795,23 @@ function Client() {
         <div className="div">
             {!clientConnected && 
                 <div className="div">
-                    <button className="button" onClick={connectContractClient}>I am a customer</button>
+                    <button className="button" onClick={connectContractClient}>I am a customer 🤵‍♂️</button>
                 </div>
             }
             {clientConnected && 
                 <div className="div block">
                 <div className="part">
-                  <button className="button w250" onClick={getInfos}>Get client address</button>
+                  <input type="text" placeholder="Enter the Owner's address" maxLength="42" className="w500" id="addressc2"></input>
+                  <div className="space"></div>
+                  <button className="button w250" onClick={getId}>Get my ID</button>
+                  <div className="space"></div>
+                  <code className="big-font">{clientId}</code>
+                </div>
+                <div className="space"></div>
+                <div className="part">
+                    <input type="text" placeholder="Enter the vin number" maxLength="17" className="w250" id="vin_c"></input>
+                    <div className="space"></div>
+                  <button className="button w250" onClick={getInfos}>Get client's car infos</button>
                   <div className="space"></div>
                   <code className="big-font">{clientData}</code>
                 </div>
@@ -1010,7 +819,7 @@ function Client() {
                 <div className="part">
                   <input type="text" placeholder="Enter the buyer's address" maxLength="42" className="w250" id="clientAddress_c"></input>
                   <div className="space"></div>
-                  <input type="text" placeholder="Enter the vin number" maxLength="9" className="w250" id="vinNumber_c"></input>
+                  <input type="number" placeholder="Enter the ID" min="0" className="w250" id="id_c"></input>
                   <div className="space"></div>
                   <button className="button w250" onClick={sellCar}>Sell my car</button>
                   <div className="space"></div>
