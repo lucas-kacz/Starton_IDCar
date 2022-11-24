@@ -45,14 +45,19 @@ Our biggest challenge was to transfer all the maintenance tokens with the associ
 
 Explain, step-by-step, how someone can install your project and use it. The jury will mainly use MacOS, Ubuntu, Android, and iOS. Setting up a docker/docker-compose is a good idea to allow someone to test the project easily. 
 
-Connect your wallet on our website. 
+- Clone the repo on your local machine
 
-When you go to the garage, ask him to create an NFT on the website and to send it to you. 
+- Type `cd app`
 
-When you return on the website, you can see that you are the owner of the car and all the data it has. 
+- If you don't have some of the libraries used such as ethers type `npm install`, if you do skip this step
 
-If you want to sell it, you can prove the data by looking your NFT Car characteristics. 
+- Type `npm start` to launch the website on your machine
 
+- A new tab should open on your web browser
+
+- For testing purposes the conditions on car and service creations have been disabled (in real conditions only partners would be able to create new cars and maintenance tokens)
+
+-
 
 ### Team and comments 
 
