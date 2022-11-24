@@ -34,9 +34,9 @@ How did you resolve this issue? What technologies did you use? What was your big
 
 We resolve this issue by creating a web2 site that links your wallet with your car to see all the data of the car : the car is associated to an NFT (ERC721) containing the VIN (Vehicle identification number) which is the serial number of the car. With this number we can retrieve all the information related to the model, colour and options on the car. 
 
-Every car would also have other token directly associated to it such as maintenance tokens containing useful information regarding the maintenance done (description (mileage, success or fail of the maintenance)
+Every car would also have other token directly associated to it such as maintenance tokens containing useful information regarding the maintenance done (description, success or fail of the maintenance)
 
-At first we decided to implement our solution solely to one brand and its official garages due to trust factors on the third parts interacting with our product. This means that only aggregated garages would be able to issue maintenance NFTs and therefore greatly reduce misuse of our product.
+We decided to implement our solution solely to one brand and its official garages due to trust factors on the third parts interacting with our product. This means that only aggregated garages would be able to issue maintenance NFTs and therefore greatly reduce misuse of our product.
 
 Our biggest challenge was to transfer all the maintenance tokens with the associated car when selling it to another individual. We solved it by associating each maintenance token to the id of car and transferring them using conditions in our smart contract.
 
@@ -58,7 +58,7 @@ If you want to sell it, you can prove the data by looking your NFT Car character
 
 Specify the name of your team (the same as on the discord/gather), and tell us what you learned during this hackathon! 
 
-The name of your team is : **IdCar**. We learnt a lot of things during this hackathon especially with all the conferences that were given. We saw most of them and they were very interesting (especially the ones that helped us in our project such as the Bnb chain workshop with Starton and the Solidity Workshop. Starton got to be a very useful tool for our project as it made us save considerable amouts of time and test our smart contractss easily. 
+The name of your team is : **IdCar**. We learnt a lot of things during this hackathon especially with all the conferences that were given. We saw most of them and they were very interesting (especially the ones that helped us in our project such as the Bnb chain workshop with Starton and the Solidity Workshop). Starton got to be a very useful tool for our project as it made us save considerable amouts of time and test our smart contractss easily. 
 
 We also learned a lot on how to organize ourselves to be the most productive given the short amount of time to carry out our ideas. Everyone in our team had a specific task and we made regular follow-ups to make sure that the production was going fine.
 
