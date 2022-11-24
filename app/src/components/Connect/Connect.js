@@ -33,7 +33,7 @@ function Connect() {
                 </div>
             </div>
             <div className="div space">
-                <button className="button large" onClick={refreshPage}>Changer d'espace</button>
+                <button className="button large" onClick={refreshPage}>Change space</button>
             </div>
         </div>
     );
