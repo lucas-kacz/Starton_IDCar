@@ -83,7 +83,7 @@ We also learned a lot on how to organize ourselves to be the most productive giv
 
 Provide an explanation of the features of your projects. You must link a demonstration video with commentary and screen recording of your presentation (10 slides max) or demo product (example: Loom, 4 minutes max). 
 
-[Link to the video](https://www.youtube.com/watch?v=hoaKJOJirDM)
+[Link to the video](https://www.youtube.com/watch?v=YIejurMjjg0&feature=youtu.be)
 
 We used Starton to deploy our smart contracts and test them directly on the website. It helped us a lot to see if our code was working as planned and made us save a lot of time.
 
