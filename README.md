@@ -43,9 +43,9 @@ Our biggest challenge was to transfer all the maintenance tokens with the associ
 
 Explain, step-by-step, how someone can install your project and use it. The jury will mainly use MacOS, Ubuntu, Android, and iOS. Setting up a docker/docker-compose is a good idea to allow someone to test the project easily. 
 
-- Our website is hosted online, you can acces it using this [link](https://idcar.vercel.app/)
+Our website is hosted online, you can acces it using this [link](https://idcar.vercel.app/). If you want to use it on mobile, you need to open the link with the Metamask app.
 
-- If you want to use the project locally follow the next steps
+However if you want to use the project locally follow the next steps :
 
 - Clone the repo on your local machine
 
