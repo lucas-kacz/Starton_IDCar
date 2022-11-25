@@ -43,8 +43,32 @@ Our biggest challenge was to transfer all the maintenance tokens with the associ
 
 Explain, step-by-step, how someone can install your project and use it. The jury will mainly use MacOS, Ubuntu, Android, and iOS. Setting up a docker/docker-compose is a good idea to allow someone to test the project easily. 
 
-To use our project, you just need to click on this [link] (https://idcar.vercel.app/).
-We hosted our project to facilitate acces for all.
+- Our website is hosted online, you can acces it using this [link](https://idcar.vercel.app/)
+
+- If you want to use the project locally follow the next steps
+
+- Clone the repo on your local machine
+
+- Type `cd app`
+
+- If you don't have some of the libraries used such as ethers type `npm install`, if you do skip this step
+
+- Type `npm start` to launch the website on your machine
+
+- A new tab should open on your web browser
+
+- For testing purposes the conditions on car and service creations have been disabled (in real conditions only partners would be able to create new cars and maintenance tokens)
+
+- Now you can use our website, you can check our [tutorial](https://www.youtube.com/watch?v=hoaKJOJirDM) to know how to use it.
+
+- We used Starton a lot to test the functions of our smart contract. If you want to do a more in-depth testing you can try the contract on Starton by importing our smart contract.
+  1. Create an account or Login
+  2. Open your existing project
+  3. Select Smart Contract
+  4. New Smart Contract / Import a Smart Contract
+  5. Name it as you want and go next
+  6. There should be a text file in the repository named starton.txt. For each contract copy/paste the address and ABI and select BNB Chain Testnet
+  7. You're ready to go ! Click on interract and you should be able to use our functions when connected to your wallet
 
 ### Team and comments 
 
