@@ -59,7 +59,7 @@ Explain, step-by-step, how someone can install your project and use it. The jury
 
 - For testing purposes the conditions on car and service creations have been disabled (in real conditions only partners would be able to create new cars and maintenance tokens)
 
-- Now you can use our website, you can check our [tutorial](https://medium.com/spartanprotocol/how-to-connect-metamask-to-bsc-testnet-7d89c111ab2) to know how to use it.
+- Now you can use our website, you can check our [tutorial](https://www.youtube.com/watch?v=hoaKJOJirDM) to know how to use it.
 
 - We used Starton a lot to test the functions of our smart contract. If you want to do a more in-depth testing you can try the contract on Starton by importing our smart contract.
   1. Create an account or Login
@@ -83,9 +83,9 @@ We also learned a lot on how to organize ourselves to be the most productive giv
 
 Provide an explanation of the features of your projects. You must link a demonstration video with commentary and screen recording of your presentation (10 slides max) or demo product (example: Loom, 4 minutes max). 
 
-Include a brief demonstration of the use of Starton or its partners iExec, BNB Chain, NodeReal, or Ledger. The more you use partner technologies, the more points you will earn. Example: Use the Starton API on the BNB Chain blockhain. You have used two partners. </aside> 
+[Link to the video](https://www.youtube.com/watch?v=hoaKJOJirDM)
 
-Starton : We used Starton to deploy our smart contracts and test them directly on the website. It helped us a lot to see if our code was working as planned and made us save a lot of time.
+We used Starton to deploy our smart contracts and test them directly on the website. It helped us a lot to see if our code was working as planned and made us save a lot of time.
 
 We deployed our smart contracts on the BNB Chain Testnet due to its speed and low transaction cost compared to the Ethereum blockchain.
 
