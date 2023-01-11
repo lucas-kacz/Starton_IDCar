@@ -43,7 +43,7 @@ code {
   background-color: var(--black);
   user-select: all;
   padding: 4px;
-  font-size: 1em!important;
+  font-size: 1em !important;
   color: var(--main);
   text-decoration: none;
 }
@@ -55,15 +55,17 @@ code {
 }
 
 .large {
-  width: calc(98% - 100px)!important;
-  margin: 50px!important;
+  width: calc(98% - 100px) !important;
+  margin: 50px !important;
 }
 
 .space {
-  margin-top: 50px!important;
+  margin-top: 50px !important;
 }
 
-input, select, option {
+input,
+select,
+option {
   padding: 9px;
   background-color: var(--dark);
   border: 2px solid var(--main);
@@ -90,7 +92,7 @@ input:focus {
 
 .block {
   text-align: left;
-  display: block!important;
+  display: block !important;
 }
 
 .logo {
@@ -102,14 +104,15 @@ input:focus {
   pointer-events: none;
 }
 
-.w250, .w500 {
+.w250,
+.w500 {
   padding: 0;
-  font-size: 2em!important;
+  font-size: 2em !important;
   margin: 0;
 }
 
 .big-font {
-  font-size: 2em!important;
+  font-size: 2em !important;
 }
 
 .App {
@@ -119,7 +122,8 @@ input:focus {
   padding: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: bold;
   text-align: center;
   filter: drop-shadow(0px 4px 0px var(--black));
@@ -145,14 +149,14 @@ h1, h2 {
   }
 
   .notel {
-    display: none!important;
+    display: none !important;
   }
-  
+
   .part {
     filter: grayscale(0);
     opacity: 1;
   }
-  
+
   .carte {
     width: 100%;
   }
@@ -168,7 +172,7 @@ h1, h2 {
   .w250 {
     width: 400px;
   }
-  
+
   .w500 {
     width: 850px;
   }
@@ -187,7 +191,7 @@ h1, h2 {
   .carte {
     background-attachment: fixed;
   }
-    
+
   .carte:hover {
     background-color: rgb(0, 0, 0, .8);
     cursor: pointer;
@@ -201,13 +205,13 @@ h1, h2 {
     filter: grayscale(1);
     opacity: .7;
   }
-  
+
   .part:hover {
     filter: grayscale(0);
     backdrop-filter: blur(4px) brightness(1.7) saturate(0);
     opacity: 1;
   }
-  
+
   .carte {
     width: calc(100%/3);
   }
@@ -256,7 +260,7 @@ h1, h2 {
 .footer p {
   padding: 50px;
   text-align: center;
-  color:  var(--medium);
+  color: var(--medium);
 }
 
 .heart {
@@ -293,12 +297,12 @@ p {
   color: var(--medium);
 }
 
-.login{
+.login {
   width: 90%;
   max-width: 40rem;
   padding: 3rem;
   margin: 2rem auto;
-  text-align: center; 
+  text-align: center;
 }
 
 .button {
@@ -388,16 +392,16 @@ p {
 }
 
 #c-left {
-  background-image: url("https://sunil.fr/partner.jpeg");
+  background-image: url("./images/partner.jpeg");
   float: left;
 }
 
 #c-center {
-  background-image: url("https://sunil.fr/clients.jpeg");
+  background-image: url("./images/clients.jpeg");
   float: left;
 }
 
 #c-right {
-  background-image: url("https://sunil.fr/garage.png");
+  background-image: url("./images/garage.png");
   float: right;
 }

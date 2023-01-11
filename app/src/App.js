@@ -1,4 +1,5 @@
 import Connect from "./components/Connect/Connect";
+import logo from './images/logo.png';
 
 function App() {
 
@@ -6,7 +7,7 @@ function App() {
     <div className="App" onLoad={window.scrollTo(0, 0)}>
       <div className="nav"></div>
       <div className="title_block">
-        <img src="https://sunil.fr/logo.png" alt="idcar-logo" className="logo" />
+        <img src={logo} alt="idcar-logo" className="logo" />
       </div>
       <Connect></Connect>
       <div className="footer">
